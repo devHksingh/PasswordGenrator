@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-      <h1 className='text-center font-black text-4xl text bg-grayish-200'>PassWord genrator</h1>
+      <h1 className='text-center font-black text-4xl text bg-grayish-200 font-jetbrainsmono'>PassWord genrator</h1>
+      <h1 className='text-center font-jetbrainsmono italic'>Lorem ipsum dolor sit amet consectetur.</h1>
     </>
   )
 }

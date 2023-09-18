@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./index.html",
@@ -18,7 +19,7 @@ export default {
 
       },
       fontFamily: {
-          jetbrainsmono: ['Jet Brains Mono', 'serif']
+          jetbrainsmono: ['Jet Brains Mono', 'serif', ]
       },
       fontSize: {
         body: ['1.125rem', '1.4375rem'],
