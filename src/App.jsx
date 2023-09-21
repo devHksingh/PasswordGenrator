@@ -69,16 +69,14 @@ function App() {
          readOnly
          value={password}
          ref={passwordRef}
-         className='w-full px-4 py-3 block rounded-l-md text-lg 
+         className='w-full px-4 py-3 block rounded-l-md text-2xl 
          font-jetbrainsmono font-[950] border-grayish-700 outline-none bg-grayish-700
-          focus:border-grayish-700
-           dark:text-gray-400'
-
+          focus:border-grayish-700 text-grayish-200 '
         />
         <button
          type='button'
          onClick={copyPasswordToClipboard}
-         className='inline-flex flex-shrink-0 justify-center items-center bg-grayish-700 h-[3.25rem] w-[2.875rem] rounded-r-md border border-transparent font-extrabold cursor-pointer'
+         className='inline-flex flex-shrink-0 justify-center items-center bg-grayish-700 h-[3.55rem] w-[2.875rem] rounded-r-md border border-transparent font-extrabold cursor-pointer'
         >
           <svg width="21" height="24" className='fill-[#A4FFAF] hover:fill-blue-500' xmlns="http://www.w3.org/2000/svg">
           <path d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z" />
@@ -115,7 +113,7 @@ function App() {
         </div>
 
         {/* checkbox */}
-        <div className='text-gray-400'>
+        <div className='text-gray-400 space-y-2 mt-4 accent-[#A4FFAF]'>
           <div>
             <input type="checkbox"
              defaultChecked={upperCharAllowed}
@@ -124,7 +122,7 @@ function App() {
               setUpperCharAllowed((prev)=>!prev)
              }}
              />
-             <label htmlFor="upperChar">Include Uppercase Letters</label>
+             <label htmlFor="upperChar" className='ml-6'>Include Uppercase Letters</label>
           </div>
           <div>
             <input type="checkbox"
@@ -134,7 +132,7 @@ function App() {
               setLowerCharAllowed((prev)=>!prev)
              }}
              />
-             <label htmlFor="lowerChar">Include Lowercase Letters</label>
+             <label htmlFor="lowerChar" className='ml-6'>Include Lowercase Letters</label>
           </div>
           <div>
             <input type="checkbox"
@@ -144,7 +142,7 @@ function App() {
               setNumberAllowed((prev)=>!prev)
              }}
              />
-             <label htmlFor="numberInput">Include Numbers</label>
+             <label htmlFor="numberInput" className='ml-6'>Include Numbers</label>
           </div>
           <div>
             <input type="checkbox"
@@ -154,13 +152,29 @@ function App() {
               setSymbolsAllowed((prev)=>!prev)
              }}
              />
-             <label htmlFor="symbolInput">Include Symbols</label>
+             <label htmlFor="symbolInput" className='ml-6'>Include Symbols</label>
           </div>
+        </div>
+        {/* password strength */}
+
+        <div className='bg-grayish-900  mt-4 w-full px-4 py-6  font-jetbrainsmono font-extrabold'>
+             <div className='flex justify-between'>
+              <h2 className='uppercase text-red-400'>Strength</h2>
+              <div className='flex'>
+                  <h1 className='uppercase text-white'>medium</h1>
+                  <div className='flex justify-end w-full ml-6'>
+                    <div className='h-5 w-2 bg-white mr-2'></div>
+                    <div className='h-5 w-2 bg-white mr-2'></div>
+                    <div className='h-5 w-2 bg-white mr-2'></div>
+                    <div className='h-5 w-2 bg-white '></div>
+                  </div>
+              </div>
+             </div>
         </div>
 
         {/* CTA btn */}
-        <button>
-
+        <button className='uppercase bg-green-apple flex justify-center w-full mt-4 px-4 py-4 rounded-xl hover:bg-blue-400 hover:text-white hover:fill-white '>
+              Generate <svg width="12" height="12" className='ml-4' xmlns="http://www.w3.org/2000/svg"><path  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg>
         </button>
 
       </div>
