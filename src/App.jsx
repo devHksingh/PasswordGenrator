@@ -1,8 +1,4 @@
 import { useCallback, useState,useEffect, useRef } from 'react'
-import copyLogo from './assets/icon-copy.svg'
-import checkLogo from './assets/icon-check.svg'
-import arrow from './assets/icon-arrow-right.svg'
-
 
 
 // import './App.css'
@@ -24,13 +20,15 @@ function App() {
 
     let pass =""
     let str =""
-
+    
+    
     if(numberAllowed) str+="0123456789"
     if(upperCharAllowed) str+= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     if(lowerCharAllowed) str+= "abcdefghijklmnopqrstuvwxyz"
     if(symbolsAllowed) str+=  "~!@#$%&*()_+*?"
+    
 
-    for (let i = 0; i <= length; i++) {
+    for (let i = 0; i < length; i++) {
       let indexValue = Math.floor(Math.random()*str.length+1)
       pass += str.charAt(indexValue)
       
@@ -41,8 +39,8 @@ function App() {
   },[length,numberAllowed,upperCharAllowed,lowerCharAllowed,symbolsAllowed,setPassword])
 
   const copyPasswordToClipboard = useCallback(()=>{
-      password.current?.select()
-      password.current?.setSelectionRange(0,40)
+      passwordRef.current?.select()
+      passwordRef.current?.setSelectionRange(0,40)
       window.navigator.clipboard.writeText(password)
   },[password])
 
@@ -55,7 +53,7 @@ function App() {
       
     {/* container */}
     <div className='w-full max-w-md h-screen max-h-md mx-auto font-jetbrainsmono font-bold  px-10 py-20 '>
-      <h1 className='text-center text-grayish-200 text-xl italic mb-4'>Password Genrator</h1>
+      <h1 className='text-center text-grayish-200 text-xl  mb-4'>Password Genrator</h1>
 
      {/* input field */}
       <div>
@@ -162,7 +160,7 @@ function App() {
               <h2 className='uppercase text-red-400'>Strength</h2>
               <div className='flex'>
                   <h1 className='uppercase text-white'>medium</h1>
-                  <div className='flex justify-end w-full ml-6'>
+                  <div className='flex justify-end w-full md:ml-6'>
                     <div className='h-5 w-2 bg-white mr-2'></div>
                     <div className='h-5 w-2 bg-white mr-2'></div>
                     <div className='h-5 w-2 bg-white mr-2'></div>
@@ -173,8 +171,9 @@ function App() {
         </div>
 
         {/* CTA btn */}
-        <button className='uppercase bg-green-apple flex justify-center w-full mt-4 px-4 py-4 rounded-xl hover:bg-blue-400 hover:text-white hover:fill-white '>
-              Generate <svg width="12" height="12" className='ml-4' xmlns="http://www.w3.org/2000/svg"><path  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg>
+        <button className='uppercase bg-green-apple flex justify-center w-full mt-4 px-4 py-4 rounded-xl hover:bg-blue-400 hover:text-white hover:fill-white '
+        onClick={passwordGenerator}>
+              Generate <svg width="12" height="12" className='ml-4 my-auto' xmlns="http://www.w3.org/2000/svg"><path  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg>
         </button>
 
       </div>
